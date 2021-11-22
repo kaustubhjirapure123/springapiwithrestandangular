@@ -13,7 +13,7 @@ export class CrudService {
     student: String | undefined;
     userState: String;
 
-    url = "http://localhost:8222/api/v1";
+    url = "http://localhost:8111/api/v1/student";
     putHandler: any;
     admin: any;
 
@@ -30,13 +30,13 @@ export class CrudService {
 
     getData(): Observable<Student[]> {
 
-        return this.http.get<any>(this.url + "/getstudents")
+        return this.http.get<any>(this.url + "/getStudents")
     }
 
     postData(data: Student | undefined) {
 
         console.log("inside service " + data)
-        return this.http.post(this.url + "/addstudent", data, { responseType: 'text' })
+        return this.http.post(this.url + "/addStudent", data, { responseType: 'text' })
     }
 
     editData(id: number, data: any) {
@@ -52,7 +52,7 @@ export class CrudService {
         //     headers: new HttpHeaders({ 'Content-Type': 'application/json', })
         //     , body: { id: id, name: data.name, },
         // };
-        return this.http.put(this.url + "/updatestudent/" + id, data, { responseType: 'text' })
+        return this.http.put(this.url + "/updateStudent/" + id, data, { responseType: 'text' })
     }
 
     deleteData(id: number, data: Student) {
@@ -61,7 +61,7 @@ export class CrudService {
             , body: { id: id, name: data.name, },
         };
 
-        return this.http.delete(this.url + "/delete/" + id, options)
+        return this.http.delete(this.url + "/deleteStudent/" + id, options)
 
     }
 

@@ -22,11 +22,8 @@ export class LoginComponent implements OnInit {
       console.log("before session")
       sessionStorage.setItem('loginId', credentails.username)
       console.log("before route")
-      this.router.navigate(['/get'])
+      this.router.navigate(['getStudents'])
   
-
-      
-
     } else {
       alert('Wrong credentials')
     }

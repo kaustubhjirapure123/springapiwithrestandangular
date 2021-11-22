@@ -27,7 +27,7 @@ export class PutComponent implements OnInit {
       .subscribe((data: any) => {
 
         console.log(data)
-        this.router.navigate(['get'])
+        this.router.navigate(['getStudents'])
 
       })
 

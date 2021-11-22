@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CrudService } from '../crud.service';
 import { Student } from '../Student';
 
@@ -11,7 +12,7 @@ import { Student } from '../Student';
 export class GetComponent implements OnInit {
   students: Student[];
 
-  constructor(private crudService: CrudService) {
+  constructor(private crudService: CrudService, private router: Router) {
 
     this.students = [];
   }
@@ -36,6 +37,12 @@ export class GetComponent implements OnInit {
         this.getHandler();
       })
     }
+  }
+
+  logoutHandler() {
+    console.log("Logout is firing");
+    sessionStorage.removeItem('loginId');
+    this.router.navigate(['login'])
   }
 
   ngOnInit(): void {

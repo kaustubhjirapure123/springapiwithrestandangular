@@ -11,31 +11,35 @@ import { PutComponent } from "./put/put.component";
 export const RouteArray: Routes = [
 
 
-    { path: '', redirectTo: '/login', pathMatch: 'full' },
-    { path: 'login', component: LoginComponent },
+    // { path: 'login', component: LoginComponent },
 
     {
+        path: 'getStudents',
+        component: GetComponent,
+        canActivate: [AppGuardGuard]
+    },
+
+    {
+        path: 'addStudent',
+        component: PostComponent,
+        canActivate: [AppGuardGuard]
+    },
+    {
+        path: 'editStudent/:id',
+        component: PutComponent,
+        canActivate: [AppGuardGuard]
+    },
+    {
+        path: 'login',
+        component: LoginComponent
+    },
+    {
         path: '',
-        component: CrudtestComponent,
-        children: [
-            {
-                path: 'get',
-                component: GetComponent,
-                canActivate: [AppGuardGuard]
-            },
-
-            {
-                path: 'post',
-                component: PostComponent,
-                canActivate: [AppGuardGuard]
-            },
-            {
-                path: 'student/:id',
-                component: PutComponent,
-                canActivate: [AppGuardGuard]
-            }
-        ]
-    }
-
+        redirectTo: 'addStudent',
+        pathMatch: 'full'
+    },
 
 ]
+
+
+

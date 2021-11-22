@@ -27,6 +27,6 @@ import { AppGuardGuard } from './app-guard.guard';
   ],
  
   providers: [AppGuardGuard],
-  bootstrap: [LoginComponent]
+  bootstrap: [CrudtestComponent]
 })
 export class AppModule { }

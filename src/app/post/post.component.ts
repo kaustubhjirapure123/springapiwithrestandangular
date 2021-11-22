@@ -13,6 +13,8 @@ export class PostComponent implements OnInit {
 student:Student | undefined
 
   constructor(private crudServie:CrudService,private router:Router) {
+
+    
     
    }
 
@@ -21,7 +23,7 @@ student:Student | undefined
     console.log(data.name);
     this.crudServie.postData(data).subscribe((info) => {
       console.log(info)
-     this.router.navigate(['get']) 
+     this.router.navigate(['getStudents']) 
 
     })
   }
