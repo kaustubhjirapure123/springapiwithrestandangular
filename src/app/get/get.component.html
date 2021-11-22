@@ -1,0 +1,45 @@
+
+
+
+<html>
+
+<head>
+
+</head>
+<style>
+    tr:nth-child(even),
+    table.list thead>tr {
+        background-color: #dddddd;
+    }
+</style>
+
+<body>
+    <h2> Number of Student = {{students.length}}</h2>
+        <table border="2">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+               
+            </tr>
+
+          
+
+            <tr *ngFor="let student of students">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+               
+                <td><input type="button" value="delete" (click)="deleteHandler(student.id,student)">
+                 
+                <a  [routerLink]="['/student',student.id]">Edit</a>   
+               
+                </td>
+
+            </tr>
+
+        </table>
+
+</body>
+
+
+</html>

@@ -1,0 +1,12 @@
+
+
+
+<div class="jumbotron">
+    <form #postData="ngForm" (ngSubmit)="postHandler(postData.value)">
+      RollNo : <input type="text" name="id" ngModel><br>
+      Name : <input type="text" name="name" ngModel><br>
+    
+      <button class="btn btn-primary">Post</button>
+    </form>
+
+</div>

@@ -1,0 +1,12 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Student </h3>
+    <form #editData="ngForm" (ngSubmit)="editHandler(editData.value)">
+
+        Id: <input type="text"  name="id" ngModel value="Student.id">
+        <br>
+        Name: <input type="text"  name="name" ngModel value="Student.name">
+        <br>
+        <button>Update</button>
+
+    </form>
+</div>
