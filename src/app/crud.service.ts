@@ -4,17 +4,23 @@ import { Observable } from 'rxjs';
 import { Student } from './Student';
 import { catchError, filter, map, mapTo, tap } from 'rxjs/operators'
 
+
 @Injectable({
     providedIn: 'root'
 })
 export class CrudService {
 
-    student: String | undefined
+    student: String | undefined;
+    userState: String;
 
     url = "http://localhost:8222/api/v1";
     putHandler: any;
+    admin: any;
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+
+        this.userState = 'Admin';
+    }
 
     httpHeader = {
         headers: new HttpHeaders({
@@ -37,8 +43,8 @@ export class CrudService {
 
         console.log("inside edit data")
 
-        console.log("id-"+id)
-        console.log("nane-"+data.name)
+        console.log("id-" + id)
+        console.log("nane-" + data.name)
 
 
 
@@ -63,4 +69,8 @@ export class CrudService {
         return this.getData().pipe(map((students: Student[]) => students.find(s => s.id == id)
         ))
     }
+
+   
+
+
 }

@@ -10,6 +10,8 @@ import { PostComponent } from './post/post.component';
 import { RouterModule } from '@angular/router';
 import { RouteArray } from './route.config';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { AppGuardGuard } from './app-guard.guard';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { FormsModule } from '@angular/forms';
     CrudtestComponent,
     GetComponent,
     PutComponent,
-    PostComponent
+    PostComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,HttpClientModule,RouterModule.forRoot(RouteArray),FormsModule
   ],
-  providers: [],
-  bootstrap: [CrudtestComponent]
+ 
+  providers: [AppGuardGuard],
+  bootstrap: [LoginComponent]
 })
 export class AppModule { }
