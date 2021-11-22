@@ -11,34 +11,41 @@
     table.list thead>tr {
         background-color: #dddddd;
     }
+
+    h2{
+        text-align: center;
+    }
 </style>
 
 <body>
+    <div class="container">
     <h2> Number of Student = {{students.length}}</h2>
-        <table border="2">
+    <hr>
+        <table  class="table table-striped"  >
+       
             <tr>
                 <th>Id</th>
                 <th>Name</th>
                 <th>Action</th>
                
             </tr>
-
+ 
           
-
+        <tbody>
             <tr *ngFor="let student of students">
                 <td>{{student.id}}</td>
                 <td>{{student.name}}</td>
                
-                <td><input type="button" value="delete" (click)="deleteHandler(student.id,student)">
-                 
-                <a  [routerLink]="['/student',student.id]">Edit</a>   
-               
+                <td><input type="button" class="btn btn-danger" value="delete" (click)="deleteHandler(student.id,student)">
+                
+              <button class="btn btn-info" style="margin-left: 10px;" >  <a  [routerLink]="['/student',student.id]">Edit</a>   
+              </button>
                 </td>
 
             </tr>
-
+        </tbody>
         </table>
-
+    </div>
 </body>
 
 

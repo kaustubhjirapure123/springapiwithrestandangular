@@ -13,21 +13,22 @@ import { Student } from '../Student';
 export class PutComponent implements OnInit {
 
   param: any;
-  student: Student | undefined;
+  student: Student;
 
 
   constructor(private crudService: CrudService, private route: ActivatedRoute, private router: Router) {
 
+    this.student = {}
   }
 
   editHandler(data: any) {
-    
-    this.crudService.editData(this.param,data)
+
+    this.crudService.editData(this.param, data)
       .subscribe((data: any) => {
 
         console.log(data)
-        this.router.navigate(['get'])  
-     
+        this.router.navigate(['get'])
+
       })
 
   }

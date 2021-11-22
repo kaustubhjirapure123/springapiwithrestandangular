@@ -17,6 +17,9 @@ export class GetComponent implements OnInit {
   }
 
   getHandler() {
+
+
+
     this.crudService.getData()
       .subscribe(data => {
         this.students = data
@@ -25,11 +28,14 @@ export class GetComponent implements OnInit {
       })
   }
 
-  deleteHandler(id: any, student: any) {
 
-    this.crudService.deleteData(id, student).subscribe(data => {
-      this.getHandler();
-    })
+  deleteHandler(id: any, student: any) {
+    if (confirm("Do you want to delete this record?")) {
+
+      this.crudService.deleteData(id, student).subscribe(data => {
+        this.getHandler();
+      })
+    }
   }
 
   ngOnInit(): void {
